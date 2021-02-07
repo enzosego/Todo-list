@@ -1,0 +1,464 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background-color: rgb(228, 228, 228);
+    background-image: url('images/main-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+}
+
+#sidebar-container {
+    height: 100vh;
+    width: 22vw;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+h1 {
+    font-size: 4.5vh;
+    font-weight: 900;
+    margin-left: 8%;
+}
+
+#projects-container {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    flex-direction: column;
+}
+
+#new-project {
+    border: none;
+    outline: none;
+    padding: 6%;
+    background: linear-gradient(#e66465, #9198e5);
+    color: rgb(228, 228, 228);
+    margin: 10vh;
+    font-family: inherit;
+    font-size: 2.5vh;
+    align-self: center;
+    justify-self: center;
+}
+
+#new-project:active {
+    background: #9198e5;
+    transform: scale(0.99);
+}
+
+#new-project:hover {
+    cursor: pointer;
+}
+
+.project-tab {
+    width: 95%;
+    height: 8vh;
+    line-height: 8vh;
+    background: #9198e5;
+    text-align: center;
+    margin: auto;
+    margin-left: 0;
+    margin-bottom: 1vh;
+    padding: auto;
+    border-top-right-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+    position: relative;
+    color: rgb(230, 230, 230);
+    font-weight: bold;
+}
+
+.project-tab:hover {
+    cursor: pointer; 
+}
+
+.project-tab:hover > img {
+    display: block;
+}
+
+.active-tab {
+    transform: scaleX(1.1);
+    background: #e66465;
+}
+
+.active-tab:hover {
+    cursor: unset;
+}
+
+.project-edit, .project-delete {
+    position: absolute;
+    height: 45%;
+    width: 9%;
+    top: 28%;
+    display: none;
+}
+
+.project-edit {
+    left: 5%;
+}
+
+.project-delete {
+    left: 16%;
+}
+
+.project-edit:hover, .project-delete:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.project-edit:active, .project-delete:active {
+    transform: scale(0.98);
+}
+
+.project-edit-text {
+    position: absolute;
+    text-align: center;
+    left: 27%;
+    top: 28%;
+    height: 4vh;
+    width: 45%;
+    outline: none;
+    border: none;
+    background: inherit;
+    border-bottom: 0.45vh solid black;
+    font-size: 2.5vh;
+    font-family: inherit;
+}
+
+.finish-edit-project-button {
+    position: absolute;
+    right: 5%;
+    top: 25%;
+    height: 50%;
+    width: 7%;
+}
+
+.finish-edit-project-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.finish-edit-project-button:active {
+    transform: scale(0.98);
+}
+
+#main-container {
+    height: 94vh;
+    width: 65%;
+    margin-top: 1%;
+    margin-left: 8%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+#form-title {
+    margin: 20px auto;
+    width: 30%;
+    text-align: center;
+}
+
+#task-form-container {
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#text-cont {
+    width: 50%;
+    display: flex;
+    margin: auto auto auto 1vw;
+    flex-direction: column;
+}
+
+.input-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.input-cont i {
+    position: absolute;
+    top: 4.85vh;
+    right: 1vw;
+    visibility: hidden;
+    font-size: 2.8vh;
+}
+
+.input-cont.success input {
+    border-color: #2ecc71;
+}
+
+.input-cont.error input {
+    border-color: #e74c3c;
+}
+
+.input-cont.success #date-calendar {
+    border-color: #2ecc71;
+}
+
+.input-cont.error #date-calendar {
+    border-color: #e74c3c;
+}
+
+.input-cont.success i.fa-check-circle {
+    visibility: visible;
+    color: #2ecc71;
+}
+
+.input-cont.error i.fa-exclamation-circle {
+    visibility: visible;
+    color: #e74c3c;
+}
+
+.text-input {
+    border-radius: 0.7vh;
+    border: 0.4vh solid #f0f0f0;
+    outline: none;
+    height: 4vh;
+    font-size: 2.8vh;
+    padding-left: 3%;
+}
+
+label {
+    padding-left: 2%;
+    font-size: 3vh;
+}
+
+#date-calendar {
+    border-radius: 0.7vh;
+    border: 0.4vh solid #f0f0f0;
+    outline: none;
+    padding-left: 3%;
+    height: 4vh;
+    font-size: 2.2vh;
+}
+
+#priority-select {
+    font-size: 2.65vh;
+    padding: 2vh 4vw 2vh 1vw;
+    background: #9198e5;
+    color: rgb(226, 226, 226);
+    border: 0;
+    outline: none;
+}
+
+#priority-select:hover {
+    cursor: pointer;
+}
+
+.custom-select {
+    margin: 3.3vh 2vh auto;
+    position: relative;
+}
+
+.custom-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    background: #e66465;
+    height: 100%;
+    width: 3.5vw;
+    pointer-events: none;
+}
+
+.custom-arrow::before, .custom-arrow::after {
+    --size: 0.9vh;
+
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-arrow::before {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid rgba(255, 255, 255, 0.5);
+    top: 40%;
+}
+
+.custom-arrow::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid rgba(255, 255, 255, 0.5);
+    top: 60%;
+}
+
+#submit {
+    border: none;
+    outline: none;
+    padding: 1.52vh;
+    background: linear-gradient(#e66465, #9198e5);
+    color: rgb(228, 228, 228);
+    margin: 3.25vh 3.25vh auto;
+    font-family: inherit;
+    font-size: 2.6vh;
+}
+
+#submit:active {
+    background: #9198e5;
+    transform: scale(0.99);
+}
+
+#submit:hover {
+    cursor: pointer;
+}
+
+.list {
+    display: none;
+    border-top: 3px transparent rgb(196, 196, 196);
+    margin-top: 1%;
+    height: 69%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+}
+
+.active[data-tab-content] {
+    display: block;
+}
+
+.tasks-low, .tasks-medium, .tasks-high {
+    height: 9%;
+    width: 96%;
+    margin: 1% auto;
+    display: flex;
+    border-radius: 1vh;
+    transition: 0.5s;
+    color: white;
+    line-height: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.tasks-low h3, .tasks-medium h3, .tasks-high h3 {
+    margin-left: 3%;
+    min-width: 20%;
+}
+
+.tasks-low .task-description, .tasks-medium .task-description, .tasks-high .task-description {
+    margin-left: 3%;
+    min-width: 40%;
+}
+
+.tasks-low .due-date, .tasks-medium .due-date, .tasks-high .due-date {
+    margin-left: 6%;
+    min-width: 15%;
+}
+
+.tasks-low {
+    background-color: #7DCD85;
+}
+
+.tasks-medium {
+    background-color: #E77728;
+}
+
+.tasks-high {
+    background-color: #FE4A49;
+}
+
+.task-title {
+    padding-left: 2%;
+    font-size: 1.5vw;
+}
+
+.task-description {
+    padding-left: 2%;
+}
+
+input[type='checkbox'] {
+    height: 3vh;
+    width: 3vh;
+}
+
+input[type='checkbox']:hover {
+    cursor: pointer;
+}
+
+p {
+    font-size: 1.2vw;
+}
+
+.task-check {
+    margin: auto 2% auto auto;
+    height: 100%;
+}
+
+
+.edit-button, .delete-button {
+    height: 60%;
+    margin-left: 2%;
+    transition: 0.08s;
+}
+
+.edit-button:hover, .delete-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.edit-button:active, .delete-button:active {
+    transform: scale(0.95);
+}
+
+.checked-task {
+    text-decoration: line-through;
+    background: grey;
+}
+
+.input-edit {
+    position: absolute;
+    height: 80%;
+    outline: none;
+    border: none;
+    border-bottom: 0.45vh solid black;
+    background: inherit;
+    font-family: inherit;
+    padding-left: 1%;
+}
+
+#title-edit {
+    left: 13%;
+    width: 20%;
+    font-size: 1.5vw;
+    font-weight: 900;
+}
+
+#description-edit {
+    left: 36%;
+    width: 40%;
+    font-size: 1.2vw;
+}
+
+.finish-edit-button {
+    position: absolute;
+    left: 77%;
+    height: 70%;
+    width: 2%;
+    background-image: url('images/check-square-solid.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-color: inherit;
+    outline: none;
+    border: none;
+}
+
+.finish-edit-button:hover {
+    cursor: pointer;
+}
+
+.finish-edit-button:active {
+    transform: scale(0.95);
+}
